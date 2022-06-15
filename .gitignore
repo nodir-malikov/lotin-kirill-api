@@ -1,0 +1,5 @@
+node_modules
+pkg
+
+# File system
+.DS_Store
