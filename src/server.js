@@ -1,6 +1,7 @@
 const express = require('express');
 const parser = require('body-parser');
 const lotin_kirill = require('lotin-kirill');
+require('dotenv').config();
 
 
 const app = express();
@@ -53,7 +54,8 @@ app.use(function (req, res) {
 	});
 });
 
-
-app.listen(8000, () => {
-	console.log(`Example app listening on http://localhost:8000`);
+const PORT = process.env.PORT || 3000;
+const HOST = process.env.HOST || 'localhost';
+app.listen(PORT, HOST, () => {
+	console.log(`Server listening on http://${HOST}:${PORT}`)
 });

@@ -3,3 +3,6 @@ pkg
 
 # File system
 .DS_Store
+
+# Environment
+.env
