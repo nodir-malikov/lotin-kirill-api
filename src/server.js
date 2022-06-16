@@ -9,7 +9,8 @@ app.use(parser.json()) // for parsing application/json
 
 const API_PATH = process.env.API_PATH || '';
 
-app.get(`${API_PATH}/latin`, (req, res) => {
+
+app.post(`${API_PATH}/latin`, (req, res) => {
 	// get json data from request body
 	const text = req.body.text;
 	if (!text) {
@@ -28,7 +29,7 @@ app.get(`${API_PATH}/latin`, (req, res) => {
 	});
 });
 
-app.get(`${API_PATH}/cyrill`, (req, res) => {
+app.post(`${API_PATH}/cyrill`, (req, res) => {
 	// get json data from request body
 	const text = req.body.text;
 	if (!text) {
