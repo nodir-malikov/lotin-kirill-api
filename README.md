@@ -6,12 +6,12 @@ Simple REST API for transliteration between Cyrillic and Latin uzbek alphabets.
 
 ##### Demo:
 
-Site: https://mal1kov.uz/lotin-kirill-api
+Endpoint: https://mal1kov.uz/lotin-kirill-api
 
 Documentation: https://mal1kov.uz/lotin-kirill-api/api-docs
 
-* to latin: https://mal1kov.uz/lotin-kirill-api/latin
-* to cyrill: https://mal1kov.uz/lotin-kirill-api/cyrill
+* to latin: https://mal1kov.uz/lotin-kirill-api/latin (POST)
+* to cyrill: https://mal1kov.uz/lotin-kirill-api/cyrill (POST)
 
 
 Thank you very much to [@Diyorbek](https://github.com/Diyorbek/lotin-kirill) for such a great transliterator!
