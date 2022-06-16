@@ -5,6 +5,11 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerAutogen = require('swagger-autogen')();
 require('dotenv').config();
 
+
+const app = express();
+app.use(parser.json()) // for parsing application/json
+
+
 const PORT = process.env.PORT || 3000;
 const HOST = process.env.HOST || 'localhost';
 const DOMAIN = process.env.DOMAIN || '';
@@ -29,14 +34,9 @@ const api_doc = {
 const outputFile = './src/swagger-output.json';
 const endpointsFiles = ['./src/server.js'];
 
-swaggerAutogen(outputFile, endpointsFiles, api_doc);
-
-
-const app = express();
-app.use(parser.json()) // for parsing application/json
-
-const swaggerDocument = require('./swagger-output.json');
-app.use(`${API_PATH}/api-docs`, swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+swaggerAutogen(outputFile, endpointsFiles, api_doc).then(() => {
+	app.use(`${API_PATH}/api-docs`, swaggerUi.serve, swaggerUi.setup(require('./swagger-output.json')));
+});
 
 app.post(`${API_PATH}/latin`, (req, res) => {
 	// get json data from request body
