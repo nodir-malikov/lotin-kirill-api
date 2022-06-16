@@ -6,3 +6,7 @@ pkg
 
 # Environment
 .env
+
+# Swagger
+swagger.json
+swagger-output.json
