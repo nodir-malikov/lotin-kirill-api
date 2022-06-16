@@ -30,13 +30,13 @@ const outputFile = './src/swagger-output.json';
 const endpointsFiles = ['./src/server.js'];
 
 swaggerAutogen(outputFile, endpointsFiles, api_doc);
-const swaggerDocument = require('./swagger-output.json');
-app.use(`${API_PATH}/api-docs`, swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 
 const app = express();
 app.use(parser.json()) // for parsing application/json
 
+const swaggerDocument = require('./swagger-output.json');
+app.use(`${API_PATH}/api-docs`, swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.post(`${API_PATH}/latin`, (req, res) => {
 	// get json data from request body
