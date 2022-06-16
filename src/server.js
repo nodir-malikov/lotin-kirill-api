@@ -1,13 +1,41 @@
 const express = require('express');
 const parser = require('body-parser');
 const lotin_kirill = require('lotin-kirill');
+const swaggerUi = require('swagger-ui-express');
+const swaggerAutogen = require('swagger-autogen')();
 require('dotenv').config();
+
+const PORT = process.env.PORT || 3000;
+const HOST = process.env.HOST || 'localhost';
+const DOMAIN = process.env.DOMAIN || '';
+const API_PATH = process.env.API_PATH || '';
+
+var host_url = `${HOST}:${PORT}`;
+
+if (DOMAIN) {
+	host_url = `${DOMAIN}`;
+}
+
+const api_doc = {
+	info: {
+		title: 'Lotin-Kirill API',
+		description: 'Transliteration API for Uzbek Cyrillic and Latin alphabets',
+	},
+	host: `${host_url}`,
+	schemes: ['http', 'https'],
+	basePath: API_PATH,
+};
+
+const outputFile = './src/swagger-output.json';
+const endpointsFiles = ['./src/server.js'];
+
+swaggerAutogen(outputFile, endpointsFiles, api_doc);
+const swaggerDocument = require('./swagger-output.json');
+app.use(`${API_PATH}/api-docs`, swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 
 const app = express();
 app.use(parser.json()) // for parsing application/json
-
-const API_PATH = process.env.API_PATH || '';
 
 
 app.post(`${API_PATH}/latin`, (req, res) => {
@@ -56,8 +84,6 @@ app.use(function (req, res) {
 	});
 });
 
-const PORT = process.env.PORT || 3000;
-const HOST = process.env.HOST || 'localhost';
 app.listen(PORT, HOST, () => {
 	console.log(`Server listening on http://${HOST}:${PORT}`)
 });
