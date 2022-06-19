@@ -8,7 +8,7 @@ Simple REST API for transliteration between Cyrillic and Latin uzbek alphabets.
 
 Endpoint: https://mal1kov.uz/lotin-kirill-api
 
-Documentation: https://mal1kov.uz/lotin-kirill-api/api-docs
+Swagger: https://mal1kov.uz/lotin-kirill-api/api-docs
 
 * to latin: https://mal1kov.uz/lotin-kirill-api/latin (POST)
 * to cyrill: https://mal1kov.uz/lotin-kirill-api/cyrill (POST)
