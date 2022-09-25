@@ -38,7 +38,7 @@ exports.appPromise = new Promise(function (resolve, reject) {
 	// this is the function that will be called before the app is started
 	swaggerAutogen(outputFile, endpointsFiles, api_doc); // generate swagger docs
 	// setting up the swagger-ui
-	app.use(`${API_PATH}/api-docs`, swaggerUi.serve, swaggerUi.setup(require('./swagger-output.json')));
+	app.use(`${API_PATH}/api-docs`, swaggerUi.serve, swaggerUi.setup(require('./src/swagger-output.json')));
 	resolve(app); // resolve the promise
 });
 
