@@ -4,7 +4,9 @@ Simple REST API for transliteration between Cyrillic and Latin uzbek alphabets.
 
 **Deployment instruction can be found [here](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-ubuntu-18-04).**
 
-##### Demo:
+#### - Don't forget to copy .env.example to .env and set your variables.
+
+### Demo:
 
 Endpoint: https://mal1kov.uz/lotin-kirill-api
 
